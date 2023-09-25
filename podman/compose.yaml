@@ -1,0 +1,18 @@
+services:
+ wp:
+  image: docker.io/library/wordpress:php8.2-apache
+  ports:
+  - 8000:80
+  volumes:
+  - wpvol:/var/www/html
+  env_file: env
+ 
+ db:
+  image: docker.io/library/mariadb:10.6
+  volumes:
+  - wpdbvol:/var/lib/mysql 
+  env_file: env
+
+volumes:
+ wpvol:
+ wpdbvol:

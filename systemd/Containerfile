@@ -1,0 +1,4 @@
+FROM ubi8-init
+RUN dnf update -y
+RUN dnf install -y httpd php-fpm; dnf clean all -y
+RUN systemctl enable httpd php-fpm
